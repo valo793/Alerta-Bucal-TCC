@@ -74,6 +74,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
                 bool isValid = await _passwordService
                     .validatePassword(_passwordController.text);
                 if (isValid) {
+                  _passwordController.clear(); // Limpa o campo da senha
                   Navigator.of(context).pop(); // Fecha o diálogo
                   Navigator.pushNamed(
                       context, '/preferences'); // Vai para as preferências

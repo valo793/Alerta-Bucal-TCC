@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/preferences_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesScreen extends StatefulWidget {
   @override
@@ -9,26 +8,6 @@ class PreferencesScreen extends StatefulWidget {
 }
 
 class _PreferencesScreenState extends State<PreferencesScreen> {
-  bool isFirstTime = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadFirstTimeStatus();
-  }
-
-  Future<void> _loadFirstTimeStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      isFirstTime = prefs.getBool('isFirstTimePreferences') ?? true;
-    });
-  }
-
-  Future<void> _setFirstTimeStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isFirstTimePreferences', false);
-  }
-
   @override
   Widget build(BuildContext context) {
     final preferences = Provider.of<PreferencesModel>(context);
@@ -81,15 +60,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             // Botão para confirmar as preferências
             Center(
               child: ElevatedButton(
-                onPressed: () async {
-                  if (isFirstTime) {
-                    // Se for a primeira vez, redirecionar para a tela de senha
-                    await _setFirstTimeStatus();
-                    Navigator.pushReplacementNamed(context, '/password');
-                  } else {
-                    // Se não for a primeira vez, voltar para a página anterior
-                    Navigator.pop(context);
-                  }
+                onPressed: () {
+                  Navigator.pop(context);
                 },
                 child: const Text('Salvar e Continuar'),
               ),

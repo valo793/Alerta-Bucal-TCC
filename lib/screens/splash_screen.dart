@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // Após 3 segundos, navega para a tela inicial
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/preferences');
+      Navigator.pushReplacementNamed(context, '/password');
     });
   }
 

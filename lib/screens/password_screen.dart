@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/password_service.dart'; // Importa o serviço de senha
+import '../services/password_service.dart';
 
 class PasswordScreen extends StatefulWidget {
   const PasswordScreen({super.key});
