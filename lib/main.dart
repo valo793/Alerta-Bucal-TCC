@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const SplashScreen(),
         '/password': (context) => const PasswordScreen(),
         '/webview': (context) => const WebViewScreen(),
-        '/preferences': (context) => PreferencesScreen(),
+        '/preferences': (context) => const PreferencesScreen(),
       },
     );
   }

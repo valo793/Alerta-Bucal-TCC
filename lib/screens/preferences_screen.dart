@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import '../services/preferences_model.dart';
 
 class PreferencesScreen extends StatefulWidget {
+  const PreferencesScreen({super.key});
+
   @override
-  _PreferencesScreenState createState() => _PreferencesScreenState();
+  State<PreferencesScreen> createState() => _PreferencesScreenState();
 }
 
 class _PreferencesScreenState extends State<PreferencesScreen> {
